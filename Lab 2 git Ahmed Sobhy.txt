@@ -1,0 +1,107 @@
+1-one from each group create new repo and choose one method git flow  or featuring workflow  (person 1)..Ahmed Sobhy
+	(if you choose git flow you need to change default branch)
+
+           $ git init
+           $ git add .
+           $ git commit -m "new repo"
+           $ git remote add origin https://github.com/AhmedSobhy656/lab2.git
+           $ git push -u origin master
+           $  git pull
+
+Now we have 2 repo for each one
+ /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+1-each one create local branch and push it  (person 2)..Ahmed Youssry 
+	- contribute person will try merge branch of Owner repo
+	- owner of repo will merge any branch to main
+
+         $ git pull
+         $ git checkout -b branch_person2     /* create anew branch and switch it */ 
+         $ git push origin branch_person2     /* push to remote reposiatory */ 
+         $ git merge branch_person2
+         $ git add .  /* I creat file "branch_person2" in this branch then used git add to add it remote reposiatory branch_person2 . */
+         $ git commit -m 'added file HTML'
+         $ git push -u origin branch_person2 /* push changes to remote repository . */
+         $ git pull origin branch_person2
+         $ git merge ahmed-youssry  /* merge to branch for person 2 */
+
+ /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+2-each one fetch another remote branch  (person 3) Ahmed Osama
+	- create new local branch and make it remote
+	- contribute person try to get update any un-tracked comments without any merge
+
+         $  git pull
+         $ git checkout -b branch_person3
+         $ git push origin branch_person3
+         $ git merge branch_person3
+         $ git add .  /*I creat file "branch_person3" in this branch then used git add to add it remote reposiatory branch_person3 . */
+         $ git commit -m 'added file HTML'
+         $ git push -u origin branch_person3   /* push changes to remote repository */
+         $ git fetch --all     /* fetch all repository commit to local without merge   . */
+          
+ /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+3- rollback commit from local repo
+	- revert in your local then make new modify and commit it again, but get history before and after that to see what the diff
+	- add you note
+
+        $ git switch Branch_AhmedSobhy   /* person 1 */
+        $ git log     /* to see all commits in baranch */ 
+        $ git diff e2e68738d756db4212952aca4ef7a8229d251868 fae7cb403ca148ab0a78c348ed3753ebd9d1185b   /* between B and C */ 
+         /* my note : I have conflict then I fiexd it  and saw after history I see my commit fixed , but then I make $ git revert --hard by mistake */ 
+        $git revert 6595fd407a19f0a72b197a019605950730dcdd91
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+4- rollback make last comment same third comment
+	- get history
+	- add your note
+
+         $ git reset --hard
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+5- rollback to master commit ( search)
+	- (roll back to head master)
+    
+         $ git revert 9db61304eae6f65372f0c9a34f83fc89b5e46470
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+6- log last 5 commit
+
+      $ git log -n 5 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+7 - display graph commit
+     
+     $ git log --graph
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+8- create file
+	- add it to staging area
+	- modify it 
+	- switch to another branch
+         
+         $ git checkout branch_AhmedSobhy
+         $ touch creatfile.txt           /* to create file */
+         $ echo "Hello" > creatfile.txt  /* to write inside the file */ 
+         $ git add .
+         $ git commit -m "add creatfile.txt "
+         $ git push -u origin branch_AhmedSobhy
+         $ git pull
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+9 -get diff between last comment and first comment
+
+     $ git diff 21377e7f1e70ca4900f09de4a2619be35b0aec6c 9db61304eae6f65372f0c9a34f83fc89b5e46470
+      
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+bonus ** restrict push to master with open-PR
+          Answer : from settings > Branches > Addrule > then active : Require a pull request before merging and Include administrators .
+
+report (between rebase and merge) 
+(revert, reset and checkout)
