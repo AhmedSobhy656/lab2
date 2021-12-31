@@ -1,0 +1,143 @@
+1-one from each group create new repo and choose one method git flow  or featuring workflow
+	(if you choose git flow you need to change default branch)
+*** git init
+*** git branch -m master
+*** git remote add origin https;........
+*** git push -u orgin master
+
+[ahmed sobhy take this part]
+
+Now we have 2 repo for each one
+/////////////////////////[ AFTER CLONE THE REPO WHICH AHMED SOBNY CREATED ]////////////////////////////////////////////
+1-each one create local branch and push it
+	- contribute person will try merge branch of Owner repo
+	- owner of repo will merge any branch to main
+*** git checkout -b ahmed-youssry
+*** git push origin ahmed-youssry
+*** git checkout master
+*** git merge ahmed-youssry
+*** git checkout ahmed-youssry
+*** touch newfile.html
+*** git add .
+*** git commit -m 'ahmed youssry new file added'
+*** git pull orgin ahmed-youssry
+
+
+2-each one fetch another remote branch
+	- create new local branch and make it remote
+	- contribute person try to get update any un-tracked comments without any merge
+*** git checkout -b ahmed-youssry
+*** git push origin ahmed-youssry
+*** git checkout master
+*** git merge ahmed-youssry
+*** git checkout ahmed-youssry
+*** touch newex.html
+*** git add .
+*** git commit -m 'ahmed youssry added new one'
+*** git fetch --all
+
+
+3- rollback commit from local repo
+	- revert in your local then make new modify and commit it again, but get history before and after that to see what the diff
+	- add you note
+*** git log ahmed-youssry
+*** git checkout ahmed-youssry [ switch to ahmed- youssry barnch]
+*** git revert 6171584136775a09c2e21971c6359fa95b56d2ec
+*** git commit -m 'this revert commit 6171584136775a09c2e21971c6359fa95b56d2ec'[commit for reverting the command ahmed youssry added new one REMOVE NEWEX.HTML FILE FROM THIS BARNCHJ]
+*** git push - u orgin ahmed-youssry[ put work on the remote 'ahmed-youssry'branch]
+*** git pull origin ahmed-youssry [get head/origin updated at last commit]
+*** git log
+*** git checkout master [switch to master]
+*** git merge ahmed-youssry [put the changes 'revert commit' into master barnch]
+*** git push -u orgin master [put work on the master branch remote FILE NEWEX.HTML WILL BE REMOVE FROM REMOTE GIT BRANCH MASTER]
+*** git pull origin master[get head/origin updated at last commit]
+
+4- rollback make last comment same third comment
+	- get history
+	- add your note
+
+
+5- rollback to master commit ( search)
+	- (roll back to head master)
+
+
+6- log last 5 commit
+*** git log-5
+7 - display graph commit
+*** git log --graph
+8- create file
+	- add it to staging area
+	- modify it
+	- switch to another branch
+*** git checkout ahmed-youssry
+*** touch.newfile.txt
+*** echo 'writting in'
+*** git add . 
+*** git commit -m 'added file html'
+*** git push -u origin ahmed-youssry
+*** git pull origin ahmed-youssry
+*** git checkout master
+*** git pull
+
+9 -get diff between last comment and first comment
+*** git diff e418785103b016760efeca757e6632884ce53208  6595fd407a19f0a72b197a019605950730dcdd91
+
+ ..........................OUTPUT........................................
+
+//diff --git a/branch_AhmedSobhy.html b/branch_AhmedSobhy.html
+deleted file mode 100644
+index 583397c..0000000
+--- a/branch_AhmedSobhy.html
++++ /dev/null
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-    <head>
+-
+-    </head>
+-    <body>
+-
+-        <h1> branch Ahmed Sobhy</h1>
+-    </body>
+-</html>
+\ No newline at end of file
+diff --git a/sobhy.js b/sobhy.js
+deleted file mode 100644
+index d249653..0000000
+--- a/sobhy.js
++++ /dev/null
+@@ -1,9 +0,0 @@
+-console.log("file in branch AhmedSobhy");
+-
+-console.log("function A in sobhy");
+-
+-console.log("function B in sobhy");
+-
+-
+-
+-console.log(" function C in sobhy ");
+\ No newline at end of file
+diff --git a/sobhy2.js b/sobhy2.js
+deleted file mode 100644
+index b931823..0000000
+--- a/sobhy2.js
++++ /dev/null
+@@ -1,9 +0,0 @@
+-console.log("Sobhy 2");
+-<<<<<<< HEAD
+-<<<<<<< HEAD
+-
+-console.log("Hello in Sobhy 2 ");
+-=======
+->>>>>>> parent of a3eae88 (added hello)
+-=======
+->>>>>>> parent of a3eae88 (added hello)
+diff --git a/sobhy3.js b/sobhy3.js
+:
+//
+
+
+bonus ** restrict push to master with open-PR
+
+report (between rebase and merge) 
+(revert, reset and checkout)
